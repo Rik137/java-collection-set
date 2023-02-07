@@ -1,33 +1,59 @@
+package practice;
 import java.util.Scanner;
-
 public class Main {
     public static final String WRONG_EMAIL_ANSWER = "Неверный формат email";
-    
-    /* TODO:
-        Пример вывода списка Email, после ввода команды LIST в консоль:
-        test@test.com
-        hello@mail.ru
-        - каждый адрес с новой строки
-        - список должен быть отсортирован по алфавиту
-        - email в разных регистрах считается одинаковыми
-           hello@skillbox.ru == HeLLO@SKILLbox.RU
-        - вывод на печать должен быть в нижнем регистре
-           hello@skillbox.ru
-        Пример вывода сообщения об ошибке при неверном формате Email:
-        "Неверный формат email"
-    */
 
     public static void main(String[] args) {
+        EmailList emailList = new EmailList();
         Scanner scanner = new Scanner(System.in);
-        
+        String command = "";
+        String email = "";
         while (true) {
-            String input = scanner.nextLine();
+            System.out.println("введите команду или \"0\"");
+            String input = scanner.nextLine().strip();
             if (input.equals("0")) {
                 break;
+            }else {
+                String[] parts = input.split("\\s+");
+                command = findCommand(parts);
+                email = findText(parts);
+
+                switch (command){
+                    case "LIST":
+                        System.out.println(emailList);
+                        break;
+                    case "ADD":
+                            emailList.add(email);
+                            if(EmailList.error == false){
+                                System.out.println(WRONG_EMAIL_ANSWER);
+                            }
+                        break;
+                    default:
+                        System.out.println(command);
+                        break;
+                }
             }
-            
-            //TODO: write code here
-            
         }
+    }
+    public static String findCommand(String[] parts){
+        String word = parts[0];
+        String[] commands = {"ADD", "LIST"};
+        String command = "";
+        for (int i = 0; i < commands.length; i++) {
+            if(word.equals(commands[i])){
+                command = commands[i];
+                break;
+            }else {
+                command = "команда не найдена";
+            }
+        }
+        return command;
+    }
+    public static String findText(String[] parts){
+        String email = "ввод без параметров";
+        if(!email.isBlank() && parts.length - 1 > 0){
+           email = parts[1];
+        }
+        return email;
     }
 }
