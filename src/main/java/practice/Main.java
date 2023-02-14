@@ -50,7 +50,7 @@ public class Main {
         return command;
     }
     public static String findText(String[] parts){
-        String email = "ввод без параметров";
+        String email = "";
         if(!email.isBlank() && parts.length - 1 > 0){
            email = parts[1];
         }
