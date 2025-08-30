@@ -1,7 +1,7 @@
 package practice;
 import java.util.Scanner;
 public class Main {
-    public static final String WRONG_EMAIL_ANSWER = "Неверный формат email";
+    public static final String WRONG_EMAIL_ANSWER = "this format of email is incorrect";
 
     public static void main(String[] args) {
         EmailList emailList = new EmailList();
@@ -9,7 +9,7 @@ public class Main {
         String command = "";
         String email = "";
         while (true) {
-            System.out.println("введите команду или \"0\"");
+            System.out.println("input the command or  \"0\"");
             String input = scanner.nextLine().strip();
             if (input.equals("0")) {
                 break;
@@ -44,7 +44,7 @@ public class Main {
                 command = commands[i];
                 break;
             }else {
-                command = "команда не найдена";
+                command = "the command wan not found";
             }
         }
         return command;
