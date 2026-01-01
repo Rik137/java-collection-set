@@ -80,3 +80,5 @@ Notes
 This project is created for learning purposes.
 Validation is very basic and does not cover all real-world email formats.
 Can be extended with better regex or additional features.
+---
+The repository exists purely as a learning and demonstration artifact.
