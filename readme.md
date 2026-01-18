@@ -61,11 +61,11 @@ john@example.com
 ---
 
 ## Project Structure
-
+```java
 practice/   
 ├── EmailList.java # Class for storing and managing emails <br>
 └── Main.java # CLI application entry point
-
+```
 ---
 
 ## How to Run
@@ -74,8 +74,10 @@ practice/
 2. Compile the project:
    ```bash
    javac practice/*.java
-Run the program:
+Run the program: 
+```java
 java practice.Main
+```
 Notes
 This project is created for learning purposes.
 Validation is very basic and does not cover all real-world email formats.
